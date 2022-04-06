@@ -7,4 +7,8 @@ class AppSockets {
   Stream _streamData() {
     return channel.stream;
   }
+
+  Future<void> _sendData(String message) async {
+    channel.sink.add(message);
+  }
 }
