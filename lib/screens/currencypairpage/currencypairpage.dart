@@ -16,10 +16,16 @@ class _CurrencyPairPageState extends State<CurrencyPairPage> {
           stream: AppSockets().streamData(),
           builder: (context, snapshot) {
             if (!snapshot.hasError) {
-              return Text(snapshot.data.toString());
+              final _processedData = _parseData(snapshot.data);
+              return Text(_processedData.toString());
             }
             return Text('Error');
           }),
     );
+  }
+
+  // work on the data from the snapshot
+  List<double> _parseData(data) {
+    return [];
   }
 }
